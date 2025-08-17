@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ product.name }} · Catering Store{% endblock %}
+{% block content %}
+
+<a class="btn btn-link p-0 mb-3" href="/">← Back to products</a>
+
+<div class="row g-4">
+  <div class="col-md-8">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h1 class="h3">{{ product.name }}</h1>
+        <div class="text-muted mb-2">{{ product.category.name }}</div>
+        <p class="lead">€{{ product.price }}</p>
+        <p>{{ product.description }}</p>
+        <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

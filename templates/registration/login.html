@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Login · Catering Store{% endblock %}
+{% block content %}
+<h1 class="mb-3">Login</h1>
+<form method="post" class="col-md-6">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-primary">Log in</button>
+  {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
+</form>
+{% endblock %}

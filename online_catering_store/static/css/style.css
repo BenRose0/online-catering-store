@@ -1,0 +1,20 @@
+body {
+     background: #f8f9fa; 
+    }
+
+.navbar-brand {
+     font-weight: 600; letter-spacing: .3px; 
+    }
+
+.card-title {
+     margin-bottom: .25rem; 
+    }
+
+.product-price {
+     font-weight: 600; 
+    }
+
+.pagination .page-link {
+     cursor: pointer; 
+    }
+    

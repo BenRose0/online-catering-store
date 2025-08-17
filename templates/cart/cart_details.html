@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Your Cart</title></head>
+<body>
+  <h1>Your Cart</h1>
+  <p><a href="/">← Continue shopping</a></p>
+
+  {% if items %}
+    <table border="1" cellpadding="6">
+      <tr><th>Product</th><th>Qty</th><th>Line Total</th><th>Actions</th></tr>
+      {% for item in items %}
+        <tr>
+          <td>{{ item.product.name }} — €{{ item.product.price }}</td>
+          <td>{{ item.qty }}</td>
+          <td>€{{ item.line_total }}</td>
+          <td>
+            <a href="{% url 'increment_item' item.product.id %}">+</a>
+            <a href="{% url 'decrement_item' item.product.id %}">-</a>
+            <a href="{% url 'remove_from_cart' item.product.id %}">Remove</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    <h3>Total: €{{ total }}</h3>
+  {% else %}
+    <p>Your cart is empty.</p>
+  {% endif %}
+</body>
+</html>

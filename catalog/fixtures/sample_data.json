@@ -1,0 +1,38 @@
+[
+  { "model": "catalog.category", "pk": 1, "fields": { "name": "Ovens",   "slug": "ovens"   } },
+  { "model": "catalog.category", "pk": 2, "fields": { "name": "Fridges", "slug": "fridges" } },
+
+  { "model": "catalog.product", "pk": 1,
+    "fields": {
+      "name": "Convection Oven",
+      "slug": "convection-oven",
+      "category": 1,
+      "brand": "Acme",
+      "description": "Stainless steel convection oven.",
+      "price": "999.99",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  { "model": "catalog.product", "pk": 2,
+    "fields": {
+      "name": "Deck Oven",
+      "slug": "deck-oven",
+      "category": 1,
+      "brand": "BakerPro",
+      "description": "Two-deck baking oven.",
+      "price": "1799.00",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  { "model": "catalog.product", "pk": 3,
+    "fields": {
+      "name": "Upright Fridge",
+      "slug": "upright-fridge",
+      "category": 2,
+      "brand": "CoolMax",
+      "description": "Commercial upright fridge.",
+      "price": "1299.50",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  }
+]
