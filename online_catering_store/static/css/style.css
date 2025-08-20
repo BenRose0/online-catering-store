@@ -1,20 +1,38 @@
-body {
-     background: #f8f9fa; 
-    }
+:root {
+    --brand: #0f766e;
+    --brand-dark: #0b5c57;
+    --accent: #eab308
+}
 
-.navbar-brand {
-     font-weight: 600; letter-spacing: .3px; 
-    }
+.navbar {
+    background: linear-gradient(90deg, #111827, #0b1220);
+}
+.btn-primary {
+    background-color: var(--brand);
+    border-color: var(--brand);
+}
+.btn-primary:hover {
+    background-color: var(--brand-dark);
+    border-color: var(--brand-dark);
+}
 
-.card-title {
-     margin-bottom: .25rem; 
-    }
+.card {
+    transition: trasform .08s ease, box-shadow .08s ease; 
+}
+.caed:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+}
 
 .product-price {
-     font-weight: 600; 
-    }
-
-.pagination .page-link {
-     cursor: pointer; 
-    }
-    
+    font-weight: 700;
+}
+.badge-accent { 
+    background: var(--accent);
+    color: #111;
+}
+.hero {
+    background: radial-gradient(80% 120% at 10% 10%, #0b1220, #111827);
+    color: #e5e7eb;
+    border-radius:.75rem
+}

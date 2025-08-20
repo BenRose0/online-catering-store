@@ -5,17 +5,26 @@
 <a class="btn btn-link p-0 mb-3" href="/">← Back to products</a>
 
 <div class="row g-4">
-  <div class="col-md-8">
+  <div class="col-md-6">
     <div class="card shadow-sm">
-      <div class="card-body">
+        {% if product.image %}
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+        {% else %}
+            <img src="{% static 'images/default-product.jpg' %}" class="card-img-top" alt="Default image">
+        {% endif %}
+    </div>
+  </div>
+    <div class="col-md-6">
         <h1 class="h3">{{ product.name }}</h1>
         <div class="text-muted mb-2">{{ product.category.name }}</div>
         <p class="lead">€{{ product.price }}</p>
         <p>{{ product.description }}</p>
-        <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to cart</a>
-      </div>
+        
+        <div class="d-flex gap-2">
+            <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to cart</a>
+            <a href="/cart/" class="btn btn-outline-secondary">View Cart</a>
+        </div>
     </div>
-  </div>
 </div>
 
 {% endblock %}
