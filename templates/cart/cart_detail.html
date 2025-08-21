@@ -1,29 +1,46 @@
-<!doctype html>
-<html>
-<head><meta charset="utf-8"><title>Your Cart</title></head>
-<body>
-  <h1>Your Cart</h1>
-  <p><a href="/">← Continue shopping</a></p>
+{% extends "base.html" %}
+{% load static %}
 
-  {% if items %}
-    <table border="1" cellpadding="6">
-      <tr><th>Product</th><th>Qty</th><th>Line Total</th><th>Actions</th></tr>
-      {% for item in items %}
-        <tr>
-          <td>{{ item.product.name }} — €{{ item.product.price }}</td>
-          <td>{{ item.qty }}</td>
-          <td>€{{ item.line_total }}</td>
-          <td>
-            <a href="{% url 'increment_item' item.product.id %}">+</a>
-            <a href="{% url 'decrement_item' item.product.id %}">-</a>
-            <a href="{% url 'remove_from_cart' item.product.id %}">Remove</a>
-          </td>
-        </tr>
+{% block title %}Cart · Catering Store{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h1 class="h4 mb-3">Your cart</h1>
+
+  {% if cart_items %}
+    <div class="list-group mb-3">
+      {% for item in cart_items %}
+        <div class="list-group-item d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center gap-3">
+            {% if item.product.image %}
+              <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
+                   style="width:72px;height:72px;object-fit:cover;border-radius:.5rem;">
+            {% else %}
+              <img src="{% static 'img/placeholder.jpg' %}" alt="{{ item.product.name }}"
+                   style="width:72px;height:72px;object-fit:cover;border-radius:.5rem;">
+            {% endif %}
+
+            <div>
+              <div class="fw-semibold">{{ item.product.name }}</div>
+              <div class="text-muted small">€{{ item.product.price }} each</div>
+              <div class="text-muted small">Quantity: {{ item.quantity }}</div>
+            </div>
+          </div>
+
+          <div class="text-end">
+            <div class="fw-bold">€{{ item.total }}</div>
+            <a href="{% url 'remove_from_cart' item.product.id %}" class="btn btn-sm btn-outline-secondary mt-2">Remove</a>
+          </div>
+        </div>
       {% endfor %}
-    </table>
-    <h3>Total: €{{ total }}</h3>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center">
+      <a href="{% url 'product_list' %}" class="btn btn-outline-primary">Continue shopping</a>
+      <div class="fs-5">Total: <span class="fw-bold">€{{ cart_total }}</span></div>
+    </div>
   {% else %}
-    <p>Your cart is empty.</p>
+    <div class="alert alert-secondary">Your cart is empty.</div>
+    <a href="{% url 'product_list' %}" class="btn btn-primary">Browse products</a>
   {% endif %}
-</body>
-</html>
+</div>
+{% endblock %}

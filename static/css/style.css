@@ -1,0 +1,101 @@
+:root {
+    --brand: #0f766e;
+    --brand-dark: #0b5c57;
+    --accent: #eab308;
+}
+
+.navbar-custom{
+  background: linear-gradient(90deg, #0f766e, #0b5c57); /* teal gradient */
+}
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand{
+  color: #fff;
+}
+.navbar-custom .nav-link:hover{
+  color: #eab308; 
+}
+.navbar-custom .nav-link:hover{
+  color: #eab308; 
+    border-radius: .5rem;
+}
+
+.btn-primary {
+    background-color: var(--brand);
+    border-color: var(--brand);
+}
+.btn-primary:hover {
+    background-color: var(--brand-dark);
+    border-color: var(--brand-dark);
+}
+
+.card { transition: transform .08s ease, box-shadow .08s ease; }
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.product-price { font-weight: 700; }
+
+.badge-accent { 
+    background: var(--accent);
+    color: #111;
+}
+.hero {
+    background-image: linear-gradient(180deg, rgba(16,22,35,.65), rgba(16,22,35,.65)),
+    url('../img/hero.png');
+    background-size: cover;
+    background-position: center;
+    color: #e5e7eb;
+    border-radius: .75rem;
+    min-height: 350px;
+}
+.hero h1 { letter-spacing: .2px; }
+
+.product-hero-img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    background: #fff;
+}
+
+.product-card {
+   flex: 0 0 280px;
+   scroll-snap-align: start;
+}
+
+.production-card-img {
+    width: 100%;
+    aspect-ratio: 4/3;;
+    object-fit: cover;
+    display: block;
+    border-top-left-radius: .375rem;
+    border-top-right-radius: .375rem;
+}
+
+.production-row {
+    display:flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: .25rem;
+    scroll-snap-type: x mandatory;
+}
+.producr-row::-webkit-scrollbar { height: 5rem; }
+
+.production-row::-webkit-scrollbar-thumb {
+    background: #c7c7c7; 
+    border-radius: 1rem;
+}
+.production-row::-webkit-scrollbar-track {
+    background: transparent;
+}
+@media (min-width: 1200px) {
+    .product-card {
+        flex: 300px;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
